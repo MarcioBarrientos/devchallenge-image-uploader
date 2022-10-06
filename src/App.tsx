@@ -1,34 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { useCallback, useState } from 'react'
 import './App.css'
+import axios from 'axios'
+import UploadCard from './components/UploadCard'
+import UploadingCard from './components/UploadingCard'
+import UploadedCard from './components/UploadedCard'
 
-function App() {
-  const [count, setCount] = useState(0)
+function App () {
+  const [isUploading, setIsUploading] = useState<boolean>(false)
+  const [uploadProgress, setUploadProgress] = useState<number>(0)
+  const [uploadedFile, setUploadedFile] = useState<any | null>(null)
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    setIsUploading(true)
+    acceptedFiles.forEach((file) => {
+      const data = new FormData()
+      data.append('source', file)
+      axios(
+        {
+          method: 'POST',
+          url: '/api',
+          data: data,
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          },
+          onUploadProgress: progressEvent => {
+            if (progressEvent.total !== undefined){
+              const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+              setUploadProgress(percentCompleted);
+            }
+          }
+        }
+      ).then(function (response) {
+        setIsUploading(false)
+        setUploadedFile(response.data.image)
+      })
+        .catch(function (error) {
+          console.log(error)
+        })
+    })
+  }, [])
+
+
+  if(uploadedFile) return <UploadedCard file={uploadedFile} />
+  if (isUploading) return <UploadingCard uploadProgress={uploadProgress} />
+  if(!isUploading && !uploadedFile) return <UploadCard onDrop={onDrop}/>
+
 }
 
 export default App

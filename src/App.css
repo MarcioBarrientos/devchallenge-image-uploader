@@ -1,41 +1,148 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vw;
+  font-family: 'Poppins', sans-serif;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
   padding: 2em;
+  width: 402px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  animation: bounceIn ease-in-out 0.5s;
+  animation-fill-mode: both;
+}
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(.9);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+.dropzone-container{
+  text-align: center;
+}
+.dropzone-container .title{
+  font-size: 21px;
+  color: #4F4F4F;
+  margin: 0;
+}
+.dropzone-container .subtitle{
+  font-size: 16px;
+  color: #828282;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+.dropzone-area{
+  cursor: pointer;
+  border: 2px dashed #97BEF4;
+  border-radius: 12px;
+  background: #F6F8FB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  color: #BDBDBD;
+}
+.dropzone-area.active{
+  background: #e0eefd;
+}
+.spacing{
+  margin: 20px 0;
+  color: #BDBDBD;
+}
+
+.dropzone-container button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #2F80ED;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: #fff;
+}
+.dropzone-container button:hover {
+  background-color: #1767d5;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+.uploading-container .title{
+  font-size: 21px;
+  color: #4F4F4F;
+  margin: 0;
+}
+.upload-bar{
+  background: #F2F2F2;
+  width: 100%;
+  border-radius: 10rem;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.upload-indicator{
+  background: #2F80ED;
+  height: 8px;
+  width: 1%;
+  transition: all 0.5s;
+}
+
+.uploaded-container .title{
+  font-size: 21px;
+  color: #4F4F4F;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+.uploaded-container .icon{
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  color: #219653;
+}
+.uploaded-container .preview img{
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+}
+.uploaded-container .url{
+  background: #F6F8FB;
+  border: 1px solid #E0E0E0;
+  padding: 5px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.uploaded-container button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.3em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #2F80ED;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: #fff;
+}
+.uploaded-container button:hover {
+  background-color: #1767d5;
 }
