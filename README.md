@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://devchallenge-image-uploader.vercel.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/MarcioBarrientos/devchallenge-image-uploader">
       Solution
     </a>
     <span> | </span>
@@ -37,14 +37,11 @@
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![screenshot](https://github.com/MarcioBarrientos/devchallenge-image-uploader/blob/main/screenshot.png?raw=true)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+For the image backend I use a free API from [Free image host](https://freeimage.host/)
 
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+The frontend is made with React, Vite, Axios and react-dropzone.
 
 ### Built With
 
@@ -53,6 +50,9 @@ Introduce your projects by taking a screenshot or a gif. Try to tell visitors a 
 - [React](https://reactjs.org/)
 - [Vite](https://vitejs.dev/)
 - [Free image host](https://freeimage.host/)
+- [Axios](https://axios-http.com/)
+- [React-dropzone](https://react-dropzone.js.org/)
+- [Vercel](https://vercel.com/)
 
 ## Features
 
