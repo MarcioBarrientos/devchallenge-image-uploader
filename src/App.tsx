@@ -41,9 +41,13 @@ function App () {
   }, [])
 
 
-  if(uploadedFile) return <UploadedCard file={uploadedFile} />
-  if (isUploading) return <UploadingCard uploadProgress={uploadProgress} />
-  if(!isUploading && !uploadedFile) return <UploadCard onDrop={onDrop}/>
+  return (
+    <div className="container">
+      {!isUploading && !uploadedFile && <UploadCard onDrop={onDrop}/>}
+      {isUploading && !uploadedFile && <UploadingCard uploadProgress={uploadProgress} />}
+      {uploadedFile && <UploadedCard file={uploadedFile} />}
+    </div>
+  )
 
 }
 
