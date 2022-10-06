@@ -12,7 +12,7 @@ const UploadCard = ({ onDrop }: UploadCardProps) => {
 
       <div className={`dropzone-area ${isDragActive && 'active'}`} {...getRootProps()}>
         <input {...getInputProps()} />
-        <img src="/public/image.svg" alt=""/>
+        <img src="/image.svg" alt=""/>
         <div>
           {
             isDragActive ?
