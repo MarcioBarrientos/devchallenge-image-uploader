@@ -3,3 +3,13 @@
   color: #213547;
   background: #FAFAFB;
 }
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
